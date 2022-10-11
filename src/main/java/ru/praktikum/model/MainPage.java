@@ -1,9 +1,5 @@
 package ru.praktikum.model;
 
-import org.junit.After;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,8 +9,8 @@ public class MainPage {
     public static final By ORDER_BUTTON_IN_HEADER = By.xpath("//div[starts-with(@class, 'Header_Nav')]//button[text()='Заказать']");
     public static final By ORDER_BUTTON_AFTER_ROADMAP = By.xpath("//div[starts-with(@class, 'Home_FinishButton')]//button[text()='Заказать']");
     public static final By COOKIES_ACCEPT_BUTTON = By.id("rcc-confirm-button");
-    //FAQ section
 
+    //FAQ section
     //Сколько это стоит? И как оплатить?
     public static final By FAQ_QUESTION_HOW_MUCH_IT_COSTS = By.id("accordion__heading-0");
     //Сутки — 400 рублей. Оплата курьеру — наличными или картой.
@@ -49,11 +45,7 @@ public class MainPage {
     public static final By FAQ_QUESTION_ORDER_OUTSIDE_MKAD = By.id("accordion__heading-7");
     //Да, обязательно. Всем самокатов! И Москве, и Московской области.
     public static final By FAQ_ANSWER_ORDER_OUTSIDE_MKAD = By.xpath("//*[@id='accordion__panel-7']/p");
-
-
     private WebDriver driver;
-
-
     public MainPage(WebDriver driver)
     {
         this.driver = driver;

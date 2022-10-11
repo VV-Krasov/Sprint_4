@@ -8,9 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import ru.praktikum.model.MainPage;
 import ru.praktikum.model.OrderPage;
-
 import java.util.concurrent.TimeUnit;
-
 import static ru.praktikum.model.OrderPage.*;
 
 @RunWith(Parameterized.class)
@@ -48,7 +46,7 @@ public class MakeOrderTests {
         mainPage.clickAcceptCookies();
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}")
     public static Object[][] getTestData()
     {
         return new Object[][]{
