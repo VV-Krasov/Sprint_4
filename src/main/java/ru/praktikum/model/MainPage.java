@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class MainPage {
 
-    public static final String PAGE_URL = "https://qa-scooter.praktikum-services.ru/";
+    private String PAGE_URL = "https://qa-scooter.praktikum-services.ru/";
     public static final By ORDER_BUTTON_IN_HEADER = By.xpath("//div[starts-with(@class, 'Header_Nav')]//button[text()='Заказать']");
     public static final By ORDER_BUTTON_AFTER_ROADMAP = By.xpath("//div[starts-with(@class, 'Home_FinishButton')]//button[text()='Заказать']");
     public static final By COOKIES_ACCEPT_BUTTON = By.id("rcc-confirm-button");

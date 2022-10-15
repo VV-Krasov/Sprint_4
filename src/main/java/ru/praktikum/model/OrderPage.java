@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 public class OrderPage {
     private WebDriver driver;
-    public static final By ORDER_BUTTON = By.className("Button_Button__ra12g Button_Middle__1CSJM");
     public static final By NEXT_BUTTON = By.xpath("//div[@class='Order_NextButton__1_rCA']//button");
     public static final By ORDER_FORM_ORDER_BUTTON = By.xpath("//div[@class='Order_Content__bmtHS']//button[text()='Заказать']");
     public static final By ORDER_FORM_STATUS_BUTTON = By.xpath("//button[text()='Посмотреть статус']");
