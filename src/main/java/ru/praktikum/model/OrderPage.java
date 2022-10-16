@@ -6,20 +6,20 @@ import org.openqa.selenium.WebDriver;
 
 public class OrderPage {
     private WebDriver driver;
-    public static final By NEXT_BUTTON = By.xpath("//div[@class='Order_NextButton__1_rCA']//button");
-    public static final By ORDER_FORM_ORDER_BUTTON = By.xpath("//div[@class='Order_Content__bmtHS']//button[text()='Заказать']");
-    public static final By ORDER_FORM_STATUS_BUTTON = By.xpath("//button[text()='Посмотреть статус']");
-    public static final By ORDER_FORM_YES_BUTTON = By.xpath("//button[text()='Да']");
-    public static final By ORDER_FORM_FIRSTNAME = By.xpath("//input[@placeholder='* Имя']");
-    public static final By ORDER_FORM_LASTNAME = By.xpath("//input[@placeholder='* Фамилия']");
-    public static final By ORDER_FORM_ADDRESS= By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']");
-    public static final By ORDER_FORM_METRO = By.xpath("//input[@placeholder='* Станция метро']");
-    public static final By ORDER_FORM_PHONE = By.xpath("//input[@placeholder='* Телефон: на него позвонит курьер']");
-    public static final By ORDER_FORM_DELIVERY_DATE = By.xpath("//input[@placeholder='* Когда привезти самокат']");
-    public static final By ORDER_FORM_RENTAL_PERIOD = By.xpath("//div[text()='* Срок аренды']");
-    public static final By ORDER_FORM_CHECKBOX_SCOOTER_COLOR_BLACK = By.id("black");
-    public static final By ORDER_FORM_CHECKBOX_SCOOTER_COLOR_GREY = By.id("grey");
-    public static final By ORDER_FORM_COMMENT_FOR_COURIER = By.xpath("//input[@placeholder='Комментарий для курьера']");
+    private static final By nextButton = By.xpath("//div[@class='Order_NextButton__1_rCA']//button");
+    private static final By orderFormOrderButton = By.xpath("//div[@class='Order_Content__bmtHS']//button[text()='Заказать']");
+    private static final By orderFormStatusButton = By.xpath("//button[text()='Посмотреть статус']");
+    private static final By orderFormYesButton = By.xpath("//button[text()='Да']");
+    private static final By orderFormFirstName = By.xpath("//input[@placeholder='* Имя']");
+    private static final By orderFormLastName = By.xpath("//input[@placeholder='* Фамилия']");
+    private static final By orderFormAddress = By.xpath("//input[@placeholder='* Адрес: куда привезти заказ']");
+    private static final By orderFormMetro = By.xpath("//input[@placeholder='* Станция метро']");
+    private static final By orderFormPhone = By.xpath("//input[@placeholder='* Телефон: на него позвонит курьер']");
+    private static final By orderFormDeliveryDate = By.xpath("//input[@placeholder='* Когда привезти самокат']");
+    private static final By orderFormRentalPeriod = By.xpath("//div[text()='* Срок аренды']");
+    private static final By orderFormCheckboxScooterColorBlack = By.id("black");
+    private static final By orderFormCheckboxScooterColorGrey = By.id("grey");
+    private static final By orderFormCommentForCourier = By.xpath("//input[@placeholder='Комментарий для курьера']");
 
     public OrderPage(WebDriver driver)
     {
@@ -27,20 +27,76 @@ public class OrderPage {
     }
     public void selectRentalPeriod(String period)
     {
-        driver.findElement(ORDER_FORM_RENTAL_PERIOD).click();
+        driver.findElement(orderFormRentalPeriod).click();
         driver.findElement(By.xpath("//div[text()='" + period + "']")).click();
     }
 
     public void clickNextButton()
     {
-        driver.findElement(NEXT_BUTTON).click();
+        driver.findElement(nextButton).click();
     }
 
     public void selectFirstMetroStation()
     {
-        driver.findElement(ORDER_FORM_METRO).click();
-        driver.findElement(ORDER_FORM_METRO).sendKeys(Keys.DOWN);
-        driver.findElement(ORDER_FORM_METRO).sendKeys(Keys.ENTER);
+        driver.findElement(orderFormMetro).click();
+        driver.findElement(orderFormMetro).sendKeys(Keys.DOWN);
+        driver.findElement(orderFormMetro).sendKeys(Keys.ENTER);
+    }
+
+    public void fillFirstName(String text)
+    {
+        driver.findElement(orderFormFirstName).sendKeys(text);
+    }
+
+    public void fillLastName(String text)
+    {
+        driver.findElement(orderFormLastName).sendKeys(text);
+    }
+
+    public void fillAddress(String text)
+    {
+        driver.findElement(orderFormAddress).sendKeys(text);
+    }
+
+    public void fillPhone(String text)
+    {
+        driver.findElement(orderFormPhone).sendKeys(text);
+    }
+
+    public void fillDeliveryDate(String text)
+    {
+        driver.findElement(orderFormDeliveryDate).sendKeys(text);
+        driver.findElement(orderFormDeliveryDate).sendKeys(Keys.ENTER);
+    }
+
+    public void selectScooterColorBlack()
+    {
+        driver.findElement(orderFormCheckboxScooterColorBlack).click();
+    }
+
+    public void selectScooterColorGrey()
+    {
+        driver.findElement(orderFormCheckboxScooterColorGrey).click();
+    }
+
+    public void fillCommentForCourier(String text)
+    {
+        driver.findElement(orderFormCommentForCourier).sendKeys(text);
+    }
+
+    public void clickFormOrderButton()
+    {
+        driver.findElement(orderFormOrderButton).click();
+    }
+
+    public void clickFormYesButton()
+    {
+        driver.findElement(orderFormYesButton).click();
+    }
+
+    public void clickFormStatusButton()
+    {
+        driver.findElement(orderFormStatusButton).click();
     }
 
 }

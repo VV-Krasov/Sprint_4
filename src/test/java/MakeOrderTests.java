@@ -59,48 +59,44 @@ public class MakeOrderTests {
     public void makeOrderWithClickOnButtonInHeader(){
         mainPage.clickOrderButtonInHeader();
 
-        driver.findElement(ORDER_FORM_FIRSTNAME).sendKeys(firstName);
-        driver.findElement(ORDER_FORM_LASTNAME).sendKeys(lastName);
-        driver.findElement(ORDER_FORM_ADDRESS).sendKeys(address);
-        driver.findElement(ORDER_FORM_PHONE).sendKeys(phone);
+        orderPage.fillFirstName(firstName);
+        orderPage.fillLastName(lastName);
+        orderPage.fillAddress(address);
+        orderPage.fillPhone(phone);
         orderPage.selectFirstMetroStation();
         orderPage.clickNextButton();
 
-        driver.findElement(ORDER_FORM_DELIVERY_DATE).sendKeys(orderDate);
-        driver.findElement(ORDER_FORM_DELIVERY_DATE).sendKeys(Keys.ENTER);
+        orderPage.fillDeliveryDate(orderDate);
         orderPage.selectRentalPeriod(rentalPeriod);
-        driver.findElement(ORDER_FORM_CHECKBOX_SCOOTER_COLOR_BLACK).click();
-        driver.findElement(ORDER_FORM_CHECKBOX_SCOOTER_COLOR_GREY).click();
+        orderPage.selectScooterColorBlack();
+        orderPage.selectScooterColorGrey();
 
-
-        driver.findElement(ORDER_FORM_COMMENT_FOR_COURIER).sendKeys(commentForCourier);
-        driver.findElement(ORDER_FORM_ORDER_BUTTON).click();
-        driver.findElement(ORDER_FORM_YES_BUTTON).click();
-        driver.findElement(ORDER_FORM_STATUS_BUTTON).click();
+        orderPage.fillCommentForCourier(commentForCourier);
+        orderPage.clickFormOrderButton();
+        orderPage.clickFormYesButton();
+        orderPage.clickFormStatusButton();
     }
 
     @Test
     public void makeOrderWithClickOnButtonAfterRoadMap(){
         mainPage.clickOrderButtonAfterRoadMap();
 
-        driver.findElement(ORDER_FORM_FIRSTNAME).sendKeys(firstName);
-        driver.findElement(ORDER_FORM_LASTNAME).sendKeys(lastName);
-        driver.findElement(ORDER_FORM_ADDRESS).sendKeys(address);
-        driver.findElement(ORDER_FORM_PHONE).sendKeys(phone);
+        orderPage.fillFirstName(firstName);
+        orderPage.fillLastName(lastName);
+        orderPage.fillAddress(address);
+        orderPage.fillPhone(phone);
         orderPage.selectFirstMetroStation();
         orderPage.clickNextButton();
 
-        driver.findElement(ORDER_FORM_DELIVERY_DATE).sendKeys(orderDate);
-        driver.findElement(ORDER_FORM_DELIVERY_DATE).sendKeys(Keys.ENTER);
+        orderPage.fillDeliveryDate(orderDate);
         orderPage.selectRentalPeriod(rentalPeriod);
-        driver.findElement(ORDER_FORM_CHECKBOX_SCOOTER_COLOR_BLACK).click();
-        driver.findElement(ORDER_FORM_CHECKBOX_SCOOTER_COLOR_GREY).click();
+        orderPage.selectScooterColorBlack();
+        orderPage.selectScooterColorGrey();
 
-
-        driver.findElement(ORDER_FORM_COMMENT_FOR_COURIER).sendKeys(commentForCourier);
-        driver.findElement(ORDER_FORM_ORDER_BUTTON).click();
-        driver.findElement(ORDER_FORM_YES_BUTTON).click();
-        driver.findElement(ORDER_FORM_STATUS_BUTTON).click();
+        orderPage.fillCommentForCourier(commentForCourier);
+        orderPage.clickFormOrderButton();
+        orderPage.clickFormYesButton();
+        orderPage.clickFormStatusButton();
     }
 
     @After

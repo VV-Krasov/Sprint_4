@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.praktikum.model.MainPage;
 import java.util.concurrent.TimeUnit;
-import static ru.praktikum.model.MainPage.*;
 
 //Здесь можно было применить параметризацию, создав тест и к нему
 // набор данных, с текстами ответов, вопросов, а также локаторами,
@@ -35,145 +34,73 @@ public class MainPageFAQTests{
     @Test
     public void checkFAQHowMuchItCosts_AnswerIsShowsAndBothTextsIsCorrect()
     {
+        mainPage.clickFAQQuestionHowMuchItCosts();
 
-        String textOfQuestion = driver.findElement(FAQ_QUESTION_HOW_MUCH_IT_COSTS).getText();
-        driver.findElement(FAQ_QUESTION_HOW_MUCH_IT_COSTS).click();
-
-        (new WebDriverWait(driver, 1)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.findElement(FAQ_ANSWER_HOW_MUCH_IT_COSTS).getText().length() != 0;
-            }
-        });
-        String textOfAnswer = driver.findElement(FAQ_ANSWER_HOW_MUCH_IT_COSTS).getText();
-
-        Assert.assertEquals("Incorrect text in FAQ question", "Сколько это стоит? И как оплатить?", textOfQuestion);
-        Assert.assertEquals("Incorrect text in FAQ answer", "Сутки — 400 рублей. Оплата курьеру — наличными или картой.", textOfAnswer);
+        Assert.assertEquals("Incorrect text in FAQ question", "Сколько это стоит? И как оплатить?", mainPage.getTextFAQQuestionHowMuchItCosts());
+        Assert.assertEquals("Incorrect text in FAQ answer", "Сутки — 400 рублей. Оплата курьеру — наличными или картой.", mainPage.getTextFAQAnswerHowMuchItCosts());
     }
 
     @Test
     public void checkFAQFewScooters_AnswerIsShowsAndBothTextsIsCorrect()
     {
+        mainPage.clickFAQQuestionFewScooters();
 
-        String textOfQuestion = driver.findElement(FAQ_QUESTION_FEW_SCOOTERS).getText();
-        driver.findElement(FAQ_QUESTION_FEW_SCOOTERS).click();
-
-        (new WebDriverWait(driver, 1)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.findElement(FAQ_ANSWER_FEW_SCOOTERS).getText().length() != 0;
-            }
-        });
-        String textOfAnswer = driver.findElement(FAQ_ANSWER_FEW_SCOOTERS).getText();
-
-        Assert.assertEquals("Incorrect text in FAQ question", "Хочу сразу несколько самокатов! Так можно?", textOfQuestion);
-        Assert.assertEquals("Incorrect text in FAQ answer", "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.", textOfAnswer);
+        Assert.assertEquals("Incorrect text in FAQ question", "Хочу сразу несколько самокатов! Так можно?", mainPage.getTextFAQQuestionFewScooters());
+        Assert.assertEquals("Incorrect text in FAQ answer", "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.", mainPage.getTextFAQAnswerFewScooters());
     }
 
     @Test
-    public void checkFAQHowTimeIsCalculated_AnswerIsShowsAndBothTextsIsCorrect2()
+    public void checkFAQHowTimeIsCalculated_AnswerIsShowsAndBothTextsIsCorrect()
     {
+        mainPage.clickFAQQuestionTimeCalculating();
 
-        String textOfQuestion = driver.findElement(FAQ_QUESTION_TIME_CALCULATING).getText();
-        driver.findElement(FAQ_QUESTION_TIME_CALCULATING).click();
-
-        (new WebDriverWait(driver, 1)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.findElement(FAQ_ANSWER_TIME_CALCULATING).getText().length() != 0;
-            }
-        });
-        String textOfAnswer = driver.findElement(FAQ_ANSWER_TIME_CALCULATING).getText();
-
-        Assert.assertEquals("Incorrect text in FAQ question", "Как рассчитывается время аренды?", textOfQuestion);
-        Assert.assertEquals("Incorrect text in FAQ answer", "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.", textOfAnswer);
+        Assert.assertEquals("Incorrect text in FAQ question", "Как рассчитывается время аренды?", mainPage.getTextFAQQuestionTimeCalculating());
+        Assert.assertEquals("Incorrect text in FAQ answer", "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.", mainPage.getTextFAQAnswerTimeCalculating());
     }
 
     @Test
-    public void checkFAQOrderForToday_AnswerIsShowsAndBothTextsIsCorrect4()
+    public void checkFAQOrderForToday_AnswerIsShowsAndBothTextsIsCorrect()
     {
+        mainPage.clickFAQQuestionOrderForToday();
 
-        String textOfQuestion = driver.findElement(FAQ_QUESTION_ORDER_FOR_TODAY).getText();
-        driver.findElement(FAQ_QUESTION_ORDER_FOR_TODAY).click();
-
-        (new WebDriverWait(driver, 1)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.findElement(FAQ_ANSWER_ORDER_FOR_TODAY).getText().length() != 0;
-            }
-        });
-        String textOfAnswer = driver.findElement(FAQ_ANSWER_ORDER_FOR_TODAY).getText();
-
-        Assert.assertEquals("Incorrect text in FAQ question", "Можно ли заказать самокат прямо на сегодня?", textOfQuestion);
-        Assert.assertEquals("Incorrect text in FAQ answer", "Только начиная с завтрашнего дня. Но скоро станем расторопнее.", textOfAnswer);
+        Assert.assertEquals("Incorrect text in FAQ question", "Можно ли заказать самокат прямо на сегодня?", mainPage.getTextFAQQuestionOrderForToday());
+        Assert.assertEquals("Incorrect text in FAQ answer", "Только начиная с завтрашнего дня. Но скоро станем расторопнее.", mainPage.getTextFAQAnswerOrderForToday());
     }
 
     @Test
-    public void checkFAQProlongateOrderOrReturnEarlier_AnswerIsShowsAndBothTextsIsCorrect5()
+    public void checkFAQProlongateOrderOrReturnEarlier_AnswerIsShowsAndBothTextsIsCorrect()
     {
+        mainPage.clickFAQQuestionProlongateOrReturnEarlier();
 
-        String textOfQuestion = driver.findElement(FAQ_QUESTION_PROLONGATE_OR_RETURN_EARLIER).getText();
-        driver.findElement(FAQ_QUESTION_PROLONGATE_OR_RETURN_EARLIER).click();
-
-        (new WebDriverWait(driver, 1)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.findElement(FAQ_ANSWER_PROLONGATE_OR_RETURN_EARLIER).getText().length() != 0;
-            }
-        });
-        String textOfAnswer = driver.findElement(FAQ_ANSWER_PROLONGATE_OR_RETURN_EARLIER).getText();
-
-        Assert.assertEquals("Incorrect text in FAQ question", "Можно ли продлить заказ или вернуть самокат раньше?", textOfQuestion);
-        Assert.assertEquals("Incorrect text in FAQ answer", "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.", textOfAnswer);
+        Assert.assertEquals("Incorrect text in FAQ question", "Можно ли продлить заказ или вернуть самокат раньше?", mainPage.getTextFAQQuestionProlongateOrReturnEarlier());
+        Assert.assertEquals("Incorrect text in FAQ answer", "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.", mainPage.getTextFAQAnswerProlongateOrReturnEarlier());
     }
 
     @Test
-    public void checkFAQIsChargerIncluded_AnswerIsShowsAndBothTextsIsCorrect6()
+    public void checkFAQIsChargerIncluded_AnswerIsShowsAndBothTextsIsCorrect()
     {
+        mainPage.clickFAQQuestionIsChargerIncluded();
 
-        String textOfQuestion = driver.findElement(FAQ_QUESTION_IS_CHARGER_INCLUDED).getText();
-        driver.findElement(FAQ_QUESTION_IS_CHARGER_INCLUDED).click();
-
-        (new WebDriverWait(driver, 1)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.findElement(FAQ_ANSWER_IS_CHARGER_INCLUDED).getText().length() != 0;
-            }
-        });
-        String textOfAnswer = driver.findElement(FAQ_ANSWER_IS_CHARGER_INCLUDED).getText();
-
-        Assert.assertEquals("Incorrect text in FAQ question", "Вы привозите зарядку вместе с самокатом?", textOfQuestion);
-        Assert.assertEquals("Incorrect text in FAQ answer", "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.", textOfAnswer);
+        Assert.assertEquals("Incorrect text in FAQ question", "Вы привозите зарядку вместе с самокатом?", mainPage.getTextFAQQuestionIsChargerIncluded());
+        Assert.assertEquals("Incorrect text in FAQ answer", "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.", mainPage.getTextFAQAnswerIsChargerIncluded());
     }
 
     @Test
-    public void checkFAQOrderCancellation_AnswerIsShowsAndBothTextsIsCorrect6()
+    public void checkFAQOrderCancellation_AnswerIsShowsAndBothTextsIsCorrect()
     {
+        mainPage.clickFAQQuestionOrderCancellation();
 
-        String textOfQuestion = driver.findElement(FAQ_QUESTION_ORDER_CANCELLATION).getText();
-        driver.findElement(FAQ_QUESTION_ORDER_CANCELLATION).click();
-
-        (new WebDriverWait(driver, 1)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.findElement(FAQ_ANSWER_ORDER_CANCELLATION).getText().length() != 0;
-            }
-        });
-        String textOfAnswer = driver.findElement(FAQ_ANSWER_ORDER_CANCELLATION).getText();
-
-        Assert.assertEquals("Incorrect text in FAQ question", "Можно ли отменить заказ?", textOfQuestion);
-        Assert.assertEquals("Incorrect text in FAQ answer", "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.", textOfAnswer);
+        Assert.assertEquals("Incorrect text in FAQ question", "Можно ли отменить заказ?", mainPage.getTextFAQQuestionOrderCancellation());
+        Assert.assertEquals("Incorrect text in FAQ answer", "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.", mainPage.getTextFAQAnswerOrderCancellation());
     }
 
     @Test
-    public void checkFAQOrderToOutsideMKAD_AnswerIsShowsAndBothTextsIsCorrect6()
+    public void checkFAQOrderToOutsideMKAD_AnswerIsShowsAndBothTextsIsCorrect()
     {
+        mainPage.clickFAQQuestionOrderOutsideMKAD();
 
-        String textOfQuestion = driver.findElement(FAQ_QUESTION_ORDER_OUTSIDE_MKAD).getText();
-        driver.findElement(FAQ_QUESTION_ORDER_OUTSIDE_MKAD).click();
-
-        (new WebDriverWait(driver, 1)).until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver d) {
-                return d.findElement(FAQ_ANSWER_ORDER_OUTSIDE_MKAD).getText().length() != 0;
-            }
-        });
-        String textOfAnswer = driver.findElement(FAQ_ANSWER_ORDER_OUTSIDE_MKAD).getText();
-
-        Assert.assertEquals("Incorrect text in FAQ question", "Я живу за МКАДом, привезёте?", textOfQuestion);
-        Assert.assertEquals("Incorrect text in FAQ answer", "Да, обязательно. Всем самокатов! И Москве, и Московской области.", textOfAnswer);
+        Assert.assertEquals("Incorrect text in FAQ question", "Я живу за МКАДом, привезёте?", mainPage.getTextFAQQuestionOrderOutsideMKAD());
+        Assert.assertEquals("Incorrect text in FAQ answer", "Да, обязательно. Всем самокатов! И Москве, и Московской области.", mainPage.getTextFAQAnswerOrderOutsideMKAD());
     }
 
     @After
